@@ -34,5 +34,5 @@
   ],
   "author": "Michael Bridgen <mikeb@squaremobius.net>",
   "license": "MIT",
-  "typings": "./amqplib.d.ts"
+  "types": "./amqplib.d.ts"
 }
