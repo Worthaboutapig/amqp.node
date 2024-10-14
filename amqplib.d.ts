@@ -11,10 +11,10 @@ declare module "@worthaboutapig/amqplib" {
   }
 
   export interface IChannel extends CommonChannelConnection {
-    assertExchange(name: string, type: string, options: { durable?: boolean }): Promise<void>;
-    assertQueue(name: string, options: { durable?: boolean; exclusive?: boolean }): Promise<void>;
+    assertExchange(name: string, type: string, options?: { durable?: boolean }): Promise<void>;
+    assertQueue(name: string, options?: { durable?: boolean; exclusive?: boolean }): Promise<void>;
     consume(name: string, handler: (message: IMessage) => Promise<void>, options: { noAck: boolean }): Promise<void>;
-    sendToQueue(name: string, data: unknown, options: { persistent: true }): boolean;
+    sendToQueue(name: string, data: unknown, options?: { persistent: true }): boolean;
   }
 
   export interface IConnection extends CommonChannelConnection {
