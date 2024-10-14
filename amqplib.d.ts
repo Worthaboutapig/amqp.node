@@ -11,7 +11,8 @@ declare module "@worthaboutapig/amqplib" {
   }
 
   export interface IChannel extends CommonChannelConnection {
-    assertQueue(name: string, options: unknown): Promise<void>;
+    assertExchange(name: string, options: { durable?: boolean }): Promise<void>;
+    assertQueue(name: string, options: { durable?: boolean; exclusive?: boolean }): Promise<void>;
     consume(name: string, handler: (message: IMessage) => Promise<void>, options: { noAck: boolean }): Promise<void>;
     sendToQueue(name: string, data: unknown, options: { persistent: true }): boolean;
   }
